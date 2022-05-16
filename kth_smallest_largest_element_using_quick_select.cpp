@@ -24,24 +24,31 @@ class Solution{
         return i;
     }
     
+    int randomPartition(int arr[], int l, int r){
+        int n = r-l+1;
+        int pivot = rand()%n;
+        swap(arr[l+pivot], arr[r]);
+        return partition(arr, l, r);
+    }
+    
     // arr : given array
     // l : starting index of the array i.e 0
     // r : ending index of the array i.e size-1
     // k : find kth smallest element and return using this function
     int kthSmallest(int arr[], int l, int r, int k) {
         //code here
-        if(k>0 && k<=(r-l+1)){
-            int pos = partition(arr, l, r);
+        // if(k>0 && k<=(r-l+1)){
+            int pos = randomPartition(arr, l, r);
             
-            if(pos-l == k-1){
+            if(pos == k-1){
                 return arr[pos];
             }
-            else if(pos-l > k-1){
+            else if(pos > k-1){
                 return kthSmallest(arr, l, pos-1, k);
             }
-            return kthSmallest(arr, pos+1, r, k-1-(pos-l));
-        }
-        return INT_MAX;
+            return kthSmallest(arr, pos+1, r, k);
+        // }
+        // return INT_MAX;
     }
 };
 
