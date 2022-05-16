@@ -1,7 +1,6 @@
 # DSA
 DSA problems solved by me on day to day basis
 
-https://www.geeksforgeeks.org/3-way-quicksort-dutch-national-flag/
 https://www.geeksforgeeks.org/quick-sort/
 https://www.geeksforgeeks.org/quicksort-on-singly-linked-list/
 https://www.geeksforgeeks.org/quicksort-for-linked-list/
