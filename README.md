@@ -7,3 +7,4 @@ https://www.geeksforgeeks.org/quicksort-for-linked-list/
 https://www.geeksforgeeks.org/iterative-quick-sort/
 https://www.geeksforgeeks.org/merge-sort/
 https://www.geeksforgeeks.org/iterative-merge-sort/
+Hashing, chaining code, open addressing get deep sense
