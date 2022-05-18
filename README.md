@@ -8,3 +8,5 @@ https://www.geeksforgeeks.org/iterative-quick-sort/
 https://www.geeksforgeeks.org/merge-sort/
 https://www.geeksforgeeks.org/iterative-merge-sort/
 Hashing, chaining code, open addressing get deep sense
+https://www.geeksforgeeks.org/rearrange-positive-and-negative-numbers-publish/
+https://www.geeksforgeeks.org/rearrange-positive-and-negative-numbers/
