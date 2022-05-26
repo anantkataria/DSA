@@ -10,3 +10,4 @@ https://www.geeksforgeeks.org/iterative-merge-sort/
 Hashing, chaining code, open addressing get deep sense
 https://www.geeksforgeeks.org/rearrange-positive-and-negative-numbers-publish/
 https://www.geeksforgeeks.org/rearrange-positive-and-negative-numbers/
+https://practice.geeksforgeeks.org/problems/minimum-number-of-jumps-1587115620/1#
