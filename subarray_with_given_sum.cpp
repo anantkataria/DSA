@@ -13,26 +13,22 @@ class Solution
     vector<int> subarraySum(int arr[], int n, long long s)
     {
         // Your code here
-        int curSum = arr[0];
+        int counter = 0;
+        int curr_sum = 0;
         int start = 0;
-        for(int i=1; i<=n; i++){
-            while(curSum > s){
-                curSum -= arr[start];
-                start++;
+        while(counter<n){
+            while(curr_sum < s){
+                curr_sum += arr[counter++];
             }
-            
-            if(curSum == s){
-                vector<int> ans{start+1, i};
-                return ans;
+            while(curr_sum > s){
+                curr_sum -= arr[start++];
             }
-            
-            if(i < n){
-                curSum += arr[i];
+            if(curr_sum == s){
+                return vector<int>{start+1, counter};
             }
         }
         
-        vector<int> ans{-1};
-        return ans;
+        return vector<int>{-1};
     }
 };
 
@@ -62,5 +58,5 @@ int main()
         cout<<endl;
         
     }
-	return 0;
+    return 0;
 }  // } Driver Code Ends
