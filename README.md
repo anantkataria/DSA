@@ -10,3 +10,5 @@ https://www.geeksforgeeks.org/iterative-merge-sort/
 Hashing, chaining code, open addressing get deep sense
 https://practice.geeksforgeeks.org/problems/minimum-number-of-jumps-1587115620/1#
 https://www.geeksforgeeks.org/given-an-array-arr-find-the-maximum-j-i-such-that-arrj-arri/
+https://www.geeksforgeeks.org/maximum-difference-between-two-elements/
+https://www.geeksforgeeks.org/stock-buy-sell/
