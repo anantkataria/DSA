@@ -1,18 +1,33 @@
 //https://www.interviewbit.com/problems/reverse-the-string/
 
 string Solution::solve(string A) {
-    int n = A.size();
-    int i = 0;
-    int j;
-    string w, res;
-    while (i < n) {
-      while (i < n && A[i] == ' ') i++;
-      j = i + 1;
-      while (j < n && A[j] != ' ') j++;
-      w = A.substr(i, j - i);
-      if (res.size() == 0) res = w;
-      else res = w + " " + res;
-      i = j + 1;
+    string ans = "";
+    string temp = "";
+    for(int i=0; i<A.size(); i++){
+        if(A[i] == ' '){
+            if(!temp.empty()){
+                ans = temp + " " + ans;
+                temp =  "";
+            }
+        }
+        else {
+            temp += A[i];
+        }
     }
-    return res; 
+    
+    if(!temp.empty()){
+        ans = temp + " " + ans;
+    }
+    
+    
+    //last character is space then we need to correct it
+    if(ans[ans.size()-1] == ' '){
+        temp = "";
+        for(int i=0; i<ans.size()-1; i++){
+            temp += ans[i];
+        }
+        return temp;
+    }
+    
+    return ans;
 }
