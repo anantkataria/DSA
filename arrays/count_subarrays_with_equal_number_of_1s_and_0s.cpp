@@ -10,7 +10,6 @@
 // Considering all 0’s as -1, if sum[i] == sum[j], where sum[i] = sum(arr[0]+..+arr[i]) and sum[j] = sum(arr[0]+..+arr[j]) and ‘i’ is less than ‘j’, then sum(arr[i+1]+..+arr[j]) must be 0. It can only be 0 if arr(i+1, .., j) contains an equal number of 1’s and 0’s. 
 
 
-
 // { Driver Code Starts
 #include <bits/stdc++.h>
 using namespace std;
@@ -24,25 +23,26 @@ class Solution{
     long long int countSubarrWithEqualZeroAndOne(int arr[], int n)
     {
         //Your code here
-        unordered_map<int, int> um;
-        
-        int curr_sum = 0;
-        for(int i=0; i<n; i++){
-            curr_sum += (arr[i] == 0) ? -1 : 1;
-            um[curr_sum]++;
-        }
-        
         int count = 0;
-        for(auto it = um.begin(); it != um.end(); it++){
-            if(it->second > 1){
-                count += it->second * (it->second-1)/2;
+        int sum = 0;
+        unordered_map<int, int> m;
+        for(int i=0; i<n; i++){
+            if(arr[i] == 0)
+                arr[i] = -1;
+            
+            sum += arr[i];
+            
+            if(sum == 0){
+                count++;
             }
+            
+            if(m[sum]){
+                count += m[sum];
+            }
+            
+            m[sum]++;
+            
         }
-        
-        if(um.find(0) != um.end()){
-            count += um[0];
-        }
-        
         return count;
     }
 };
@@ -51,18 +51,75 @@ class Solution{
 
 int main()
 {
-	int t;
-	cin>>t;
-	while(t--)
-	{
-	int n,i;
-	cin>>n;
-	int arr[n];
-	for(i=0;i<n;i++)
-	cin>>arr[i];
-	Solution obj;
-	cout<< obj.countSubarrWithEqualZeroAndOne(arr, n)<<"\n";
-	}
-	return 0;
+    int t;
+    cin>>t;
+    while(t--)
+    {
+    int n,i;
+    cin>>n;
+    int arr[n];
+    for(i=0;i<n;i++)
+    cin>>arr[i];
+    Solution obj;
+    cout<< obj.countSubarrWithEqualZeroAndOne(arr, n)<<"\n";
+    }
+    return 0;
 }
   // } Driver Code Ends
+
+
+// { Driver Code Starts
+// #include <bits/stdc++.h>
+// using namespace std;
+
+
+//  // } Driver Code Ends
+
+// class Solution{
+//   public:
+//     //Function to count subarrays with 1s and 0s.
+//     long long int countSubarrWithEqualZeroAndOne(int arr[], int n)
+//     {
+//         //Your code here
+//         unordered_map<int, int> um;
+        
+//         int curr_sum = 0;
+//         for(int i=0; i<n; i++){
+//             curr_sum += (arr[i] == 0) ? -1 : 1;
+//             um[curr_sum]++;
+//         }
+        
+//         int count = 0;
+//         for(auto it = um.begin(); it != um.end(); it++){
+//             if(it->second > 1){
+//                 count += it->second * (it->second-1)/2;
+//             }
+//         }
+        
+//         if(um.find(0) != um.end()){
+//             count += um[0];
+//         }
+        
+//         return count;
+//     }
+// };
+
+// // { Driver Code Starts.
+
+// int main()
+// {
+// 	int t;
+// 	cin>>t;
+// 	while(t--)
+// 	{
+// 	int n,i;
+// 	cin>>n;
+// 	int arr[n];
+// 	for(i=0;i<n;i++)
+// 	cin>>arr[i];
+// 	Solution obj;
+// 	cout<< obj.countSubarrWithEqualZeroAndOne(arr, n)<<"\n";
+// 	}
+// 	return 0;
+// }
+//   // } Driver Code Ends
