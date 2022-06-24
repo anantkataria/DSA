@@ -1,3 +1,5 @@
+//https://gist.github.com/mycodeschool/7702441
+
 #include<bits/stdc++.h>
 using namespace std;
 
