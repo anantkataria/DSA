@@ -20,6 +20,3 @@ class Solution:
         leftPrev.next.next = cur # cur is node after "right"
         leftPrev.next = prev     # prev is "right"
         return dummy.next
-© 2022 GitHub, Inc.
-Terms
-Privacy
