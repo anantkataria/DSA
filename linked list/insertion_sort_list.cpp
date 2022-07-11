@@ -10,18 +10,20 @@
  * };
  */
 ListNode* Solution::insertionSortList(ListNode* A) {
-    ListNode* newHead = new ListNode(-1);
+    ListNode* newHead = A;
+    A = A -> next;
     ListNode* nextStorage;
     ListNode* traversal;
+    ListNode* prev;
     while(A){
         nextStorage = A -> next;
         traversal = newHead;
-        while(traversal -> next && traversal -> next -> val < A -> val){
+        while(traversal && traversal -> val < A -> val){
             traversal = traversal -> next;
         }
         A -> next = traversal -> next;
         traversal -> next = A;
         A = nextStorage;
     }
-    return newHead -> next;
+    return newHead;
 }
