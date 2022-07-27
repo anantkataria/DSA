@@ -55,30 +55,6 @@ Btree* insert(Btree* root, int v){
 	return root;
 }
 
-Btree* insertRecur(Btree* root, int v){
-	if(!root){
-		return getNewNode(v);
-	}
-	
-	if(!root -> left){
-		root -> left = getNewNode(v);
-		return root;
-	}
-	else {
-		root -> left = insertRecur(root->left, v);
-	}
-
-	if(!root -> right){
-		root -> right = getNewNode(v);
-		return root;
-	}
-	else {
-		root -> right = insertRecur(root->right, v);
-	}
-
-	return root;
-}
-
 void inorder(Btree* root){
 	if(!root)
 		return;
@@ -94,8 +70,7 @@ int main() {
 	root->left->left = getNewNode(4);
 	inorder(root);
 	cout << endl;
-	// insert(root, 5);
-	root = insertRecur(root, 5);
+	root = insert(root, 5);
 	cout << endl;
 	inorder(root);
 	return 0;

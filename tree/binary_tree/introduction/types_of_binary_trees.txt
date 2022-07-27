@@ -1,0 +1,6 @@
+Full Binary Tree (Proper Binary Tree)
+Complete Binary Tree
+Perfect Binary Tree
+Balanced Binary Tree
+Degenerate (Pathological) Tree
+Skewed Binary Tree
