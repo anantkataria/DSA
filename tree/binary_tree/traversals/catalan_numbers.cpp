@@ -7,6 +7,8 @@
 
 //https://www.geeksforgeeks.org/program-nth-catalan-number/
 
+//https://www.youtube.com/watch?v=0pTN0qzpt-Y
+
 //further optimization possible here
 
 #include<bits/stdc++.h>

@@ -1,0 +1,12 @@
+What is tail recursion?
+: A recursive function is tail recursive when a recursive call is the last thing executed by the function. 
+
+The tail recursive functions considered better than non tail recursive functions as tail recursion can be optimized by the compiler. Compilers usually execute recursive procedures by using a stack. This stack consists of all the pertinent information, including the parameter values, for each recursive call. When a procedure is called, its information is pushed onto a stack, and when the function terminates the information is popped out of the stack. Thus for the non-tail recursive functions, the stack depth (maximum amount of stack space used at any time during compilation) is more. The idea used by compilers to optimize tail recursive function is simple, since the recursive call is the last statement, there is nothing left to do in the current function, so saving the current function's stack frame is of no use.
+
+do look at factorial example for better understanding : https://www.geeksforgeeks.org/tail-recursion/
+
+
+Tail call elimination : It is the process by which the modern compilers optimize the tail recursive functions.
+see following link for more understanding : https://www.geeksforgeeks.org/tail-call-elimination/
+
+Recursion uses a stack to keep track of function calls. With every function call, a new frame is pushed onto the stack which contains local variables and data of that call. Let's say one stack frame requires O(1) i.e, constant memory space, then for N recursive calls memory required would be O(N). Tail call elimination reduces the space complexity of recursion from O(N) to O(1). As function call is eliminated, no new stack frames are created and the function is executed in constant memory space.

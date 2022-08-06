@@ -22,12 +22,13 @@ void inorder(Node* root){
 	stack<Node*> s;
 	while(curr != NULL || s.empty() == false){
 		while(curr != NULL){
+			cout << curr -> data << " ";
 			s.push(curr);
 			curr = curr -> left;
 		}
 
 		curr = s.top(); s.pop();
-		cout << curr -> data << " ";
+		// cout << curr -> data << " ";
 
 		curr = curr -> right;
 	}
