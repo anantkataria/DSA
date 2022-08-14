@@ -1,6 +1,22 @@
 Full Binary Tree (Proper Binary Tree)
+- Every node has 0 or 2 children
+- All internal node has 2 children
+
 Complete Binary Tree
+- All levels are completely filled except last level
+- last level has all keys as left as possible
+
 Perfect Binary Tree
+- all internal nodes have two children
+- all leaf nodes are at the same level
+
 Balanced Binary Tree
+- overall height of the tree has to be log(n)
+- example : AVL tree maintains logn height by making sure that the difference between heights of the left and right subtrees is at most 1
+- example : Red-Black tree maintain this height by making sure that the number of black nodes on every path from node to leaf is same and there are no adjacent red nodes.
+
 Degenerate (Pathological) Tree
+- every internal node has one child
+
 Skewed Binary Tree
+- left dominated or right dominated degenerate tree.
