@@ -82,3 +82,24 @@ public:
         flattenTree(root);
     }
 };
+
+//MORRIS
+// O(n)
+// O(1) space
+class Solution {
+public:
+    void flatten(TreeNode* root) {
+        TreeNode* temp = root;
+        while(temp){
+            if(temp->left){
+                TreeNode* rightMost = temp->left;
+                while(rightMost -> right)
+                    rightMost = rightMost -> right;
+                rightMost -> right = temp -> right;
+                temp -> right = temp -> left;
+                temp -> left = NULL;
+            }
+            temp = temp -> right;
+        }
+    }
+};
