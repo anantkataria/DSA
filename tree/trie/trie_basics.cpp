@@ -74,6 +74,63 @@ TrieNode* remove(TrieNode* root, string key, int depth){
 	return root;
 }
 
+void display(TrieNode* root, char str[], int depth){
+	if(root->isEndOfWord == true){
+		str[depth] = '\0';
+		cout << str << "\n";
+	}
+	for(int i=0; i<ALPHABET_SIZE; i++){
+		if(root->children[i] != NULL){
+			str[depth] = i+'a';
+			display(root->children[i], str, depth+1);
+		}
+	}
+}
+
+void display(TrieNode* root, string str){
+	if(root->isEndOfWord == true){
+		cout << str << "\n";
+	}
+	for(int i=0; i<ALPHABET_SIZE; i++){
+		if(root->children[i] != NULL){
+			char child = i+'a';
+			display(root->children[i], str + child);
+		}
+	}
+}
+
+void suggestionsRecur(TrieNode* root, string curr){
+	if(root->isEndOfWord == true)
+		cout << curr << "\n";
+
+	for(int i=0; i<ALPHABET_SIZE; i++){
+		if(root->children[i] != NULL){
+			char child = i+'a';
+			suggestionsRecur(root->children[i], curr + child);
+		}
+	}
+}
+
+void printAutoSuggestions(TrieNode* root, string query){
+	TrieNode* pCrawl = root;
+	for(auto c : query){
+		int index = c - 'a';
+		if(pCrawl->children[index] == NULL){
+			cout << "No words with the query found";
+			return;
+		}
+		pCrawl = pCrawl -> children[index]; 
+	}
+
+	if(isEmpty(pCrawl) && pCrawl->isEndOfWord == true){
+		cout << query << "\n";
+		cout << "No other strings found";
+		return;
+	}
+
+	suggestionsRecur(pCrawl, query);
+}
+
 int main(){
 	string keys[] = {
 		"the", "a", "there", "answer", "any", "by", "bye", "their", "hero", "heroplane"
@@ -85,11 +142,28 @@ int main(){
 	for(int i=0; i<n; i++)
 		insert(root, keys[i]);
 
-	search(root, "hero") ? cout << "Yes\n" : cout << "No\n";
-	search(root, "heroplane") ? cout << "Yes\n" : cout << "No\n";
-	remove(root, "heroplane", 0);
-	search(root, "hero") ? cout << "Yes\n" : cout << "No\n";
-	search(root, "heroplane") ? cout << "Yes\n" : cout << "No\n";
+	// insert(root, "hello");
+ //    insert(root, "dog");
+ //    insert(root, "hell");
+ //    insert(root, "cat");
+ //    insert(root, "a");
+ //    insert(root, "hel");
+ //    insert(root, "help");
+ //    insert(root, "helps");
+ //    insert(root, "helping");
+
+	// search(root, "hero") ? cout << "Yes\n" : cout << "No\n";
+	// search(root, "heroplane") ? cout << "Yes\n" : cout << "No\n";
+	// remove(root, "heroplane", 0);
+	// search(root, "hero") ? cout << "Yes\n" : cout << "No\n";
+	// search(root, "heroplane") ? cout << "Yes\n" : cout << "No\n";
+
+	// char str[20];
+	// display(root, str, 0);
+
+	// display(root, "");
+
+	printAutoSuggestions(root, "bye");
 
 	return 0;
 }
