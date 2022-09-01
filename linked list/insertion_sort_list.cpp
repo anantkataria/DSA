@@ -1,29 +1,36 @@
-// https://www.interviewbit.com/problems/insertion-sort-list/
-// https://www.youtube.com/watch?v=gwW8U4exaYs
+// https://leetcode.com/problems/insertion-sort-list/
 
 /**
  * Definition for singly-linked list.
  * struct ListNode {
  *     int val;
  *     ListNode *next;
- *     ListNode(int x) : val(x), next(NULL) {}
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
-ListNode* Solution::insertionSortList(ListNode* A) {
-    ListNode* newHead = A;
-    A = A -> next;
-    ListNode* nextStorage;
-    ListNode* traversal;
-    ListNode* prev;
-    while(A){
-        nextStorage = A -> next;
-        traversal = newHead;
-        while(traversal && traversal -> val < A -> val){
-            traversal = traversal -> next;
+class Solution {
+public:
+    ListNode* insertionSortList(ListNode* head) {
+        ListNode* dummy = new ListNode();
+        ListNode* prev = dummy;
+        ListNode* curr = head;
+        ListNode* next; 
+        
+        while(curr != nullptr){
+            next = curr -> next;
+            
+            while(prev->next!=nullptr && prev->next->val<curr->val){
+                prev = prev -> next;
+            }
+            
+            curr -> next = prev -> next;
+            prev -> next = curr;
+            curr = next;
+            prev = dummy;
         }
-        A -> next = traversal -> next;
-        traversal -> next = A;
-        A = nextStorage;
+        
+        return dummy->next;
     }
-    return newHead;
-}
+};

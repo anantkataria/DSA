@@ -1,0 +1,27 @@
+https://www.enjoyalgorithms.com/blog/time-complexity-analysis-of-recursion-in-programming
+
+
+Analysis of Recursion data structure and algorithms
+
+Some problem solving approaches that are totally based on recursion are :
+- decrease and conquer
+- divide and conquer
+- DFS traversal
+- backtracking
+- top-down approach of dynamic programming
+
+Recurrence relation is an equation describing a sequence where any term is defined using its previous terms (sub terms).
+
+Two methods for solving recurrence relations:
+- The master method works best for the analysis of divide and conquer problems
+- Recursion tree method is fundamental approach to all types of recursive algorithms
+
+Recursion tree is a diagram representing additional cost for each recursive call in terms of their input size. We then add these extra costs of each recursive call to get the overall time complexity. (one of the best ideas would be to perform this cost sum level by level).
+
+Master theorem : is used for finding time complexity of divide and conquer algorithm that partition an input into smaller subproblems if equal sizes. It is a direct way to get the solution for recurrences that can be transformed to type : T(n) = aT(n/b) + O(n^k), where a >= 1 and b > 1. 
+
+Here, 'a' number of subproblems are solved recursively, each in time T(n/b) and O(n^k) is the cost of dividing the porblem and combining the solution of subproblems. There are three cases of analysis using master theorem:
+
+case 1 : when k < logb(a) then T(n) = O(n^logb(a))
+case 2 : when k = logb(a) then T(n) = O(n^k * logn)
+case 3 : when k > logb(a) then T(n) = O(n^k)
