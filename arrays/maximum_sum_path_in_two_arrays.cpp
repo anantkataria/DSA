@@ -1,3 +1,33 @@
+// https://leetcode.com/problems/get-the-maximum-score/
+
+class Solution {
+public:
+    int maxSum(vector<int>& nums1, vector<int>& nums2) {
+        int i1 = 0, i2 = 0;
+        long sum1 = 0, sum2 = 0;
+        while(i1 < nums1.size() || i2 < nums2.size()){
+            if(i1 < nums1.size() && (i2 == nums2.size() || nums1[i1] < nums2[i2])){
+                sum1 += nums1[i1];
+                i1++;
+            }
+            else if(i2 < nums2.size() && (i1 == nums1.size() || nums2[i2] < nums1[i1])){
+                sum2 += nums2[i2];
+                i2++;
+            }
+            else {
+                sum1 = sum2 = max(sum1, sum2)+nums1[i1];
+                i1++;
+                i2++;
+            }
+        }
+        
+        return max(sum1, sum2)%1000000007;
+    }
+};
+
+
+
+
 // { Driver Code Starts
 #include<bits/stdc++.h>
 using namespace std;
