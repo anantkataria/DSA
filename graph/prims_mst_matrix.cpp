@@ -1,3 +1,5 @@
+// solution better than this with heap and adj list implementation : https://leetcode.com/problems/optimize-water-distribution-in-a-village/description/
+
 #include<bits/stdc++.h>
 using namespace std;
 
